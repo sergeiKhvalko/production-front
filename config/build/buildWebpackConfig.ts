@@ -1,5 +1,5 @@
 import webpack from "webpack";
-import { buildOptions } from "../types/config";
+import { buildOptions } from "./types/config";
 import { buildDevServer } from "./buildDevServer";
 import { buildLoaders } from "./buildLoaders";
 import { buildPlugins } from "./buildPlugins";
@@ -21,7 +21,7 @@ export const buildWebpackConfig = (options: buildOptions): webpack.Configuration
 		module: {
 			rules: buildLoaders(options)
 		},
-		resolve: buildResolvers(),
+		resolve: buildResolvers(options),
 		devtool: isDev ? 'inline-source-map' : undefined,
 		devServer: isDev ? buildDevServer(options) : undefined,
 	}
