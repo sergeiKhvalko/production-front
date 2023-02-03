@@ -27,11 +27,11 @@ export const buildLoaders = ({ isDev }: buildOptions): webpack.RuleSetRule[] => 
 	}
 
 	const tsLoader = {
-		test: /\.tsx$/,
+		test: /\.tsx?$/,
 		use: 'ts-loader',
 		exclude: /node_modules/,
 	}
 
-	return [cssLoader, tsLoader];
+	return [tsLoader, cssLoader];
 }
 
