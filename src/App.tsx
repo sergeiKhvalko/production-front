@@ -5,12 +5,13 @@ import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
 import { MainPageAsync } from "./pages/MainPage/MainPage.async";
 import { useTheme } from "./theme/useTheme";
 import Elipses from "./components/Elipses/Elipses";
+import { cn } from "./helpers/cn/cn";
 
 const App = () => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
-		<div className={`app ${theme}`}>
+		<div className={cn('app', [theme])}>
 			<Elipses />
 			<button onClick={toggleTheme}>TOGGLE</button>
 			<Link to={"/"}>Main Page</Link>
